@@ -39,5 +39,11 @@
 		"popmotion": "^11.0.5",
 		"unplugin-icons": "^0.19.3"
 	},
-	"packageManager": "pnpm@10.12.3"
+	"packageManager": "pnpm@10.12.3",
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild",
+			"sharp"
+		]
+	}
 }
