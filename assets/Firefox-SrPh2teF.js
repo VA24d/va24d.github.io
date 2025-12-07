@@ -1,0 +1,1 @@
+import{n as a,a as s}from"./index-DJodtMPt.js";var e=a('<div class="app-placeholder s-16szcuy"><div class="content s-16szcuy"><h1>Firefox</h1> <p>This is a placeholder for the Firefox app.</p></div></div>');function i(a){var i=e();s(a,i)}export{i as default};

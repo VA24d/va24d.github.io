@@ -1,0 +1,1 @@
+import{n as a,a as s}from"./index-DJodtMPt.js";var p=a('<div class="app-placeholder s-16szcuy"><div class="content s-16szcuy"><h1>Spark</h1> <p>This is a placeholder for the Spark app.</p></div></div>');function r(a){var r=p();s(a,r)}export{r as default};

@@ -1,0 +1,1 @@
+import{n as s,a}from"./index-DJodtMPt.js";var o=s('<div class="app-placeholder s-16szcuy"><div class="content s-16szcuy"><h1>Microsoft Word</h1> <p>This is a placeholder for the Microsoft Word app.</p></div></div>');function r(s){var r=o();a(s,r)}export{r as default};

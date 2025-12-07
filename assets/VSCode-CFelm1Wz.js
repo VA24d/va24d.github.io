@@ -1,0 +1,1 @@
+import{n as a,a as p}from"./index-DJodtMPt.js";var s=a('<div class="app-placeholder s-pc4kiu"><div class="content s-pc4kiu"><h1>VS Code</h1> <p>This is a placeholder for the VS Code app.</p></div></div>');function e(a){var e=s();p(a,e)}export{e as default};

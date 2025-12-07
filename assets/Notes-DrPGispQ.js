@@ -1,0 +1,1 @@
+import{n as s,a}from"./index-DJodtMPt.js";var e=s('<div class="app-placeholder s-16szcuy"><div class="content s-16szcuy"><h1>Notes</h1> <p>This is a placeholder for the Notes app.</p></div></div>');function o(s){var o=e();a(s,o)}export{o as default};

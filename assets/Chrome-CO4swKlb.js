@@ -1,0 +1,1 @@
+import{n as a,a as o}from"./index-DJodtMPt.js";var s=a('<div class="app-placeholder s-16szcuy"><div class="content s-16szcuy"><h1>Google Chrome</h1> <p>This is a placeholder for the Google Chrome app.</p></div></div>');function e(a){var e=s();o(a,e)}export{e as default};
