@@ -3,6 +3,22 @@
 	import { click_outside, elevation, focus_outside } from '🍎/actions';
 	import { menubar_state } from '🍎/state/menubar.svelte';
 	import Menu from './Menu.svelte';
+	import LoginModal from './LoginModal.svelte';
+
+	let showLoginModal = $state(false);
+	let clickCount = 0;
+	let clickTimer;
+
+	function handleSecret() {
+		clickCount++;
+		clearTimeout(clickTimer);
+		clickTimer = setTimeout(() => (clickCount = 0), 2000);
+
+		if (clickCount >= 5) {
+			clickCount = 0;
+			showLoginModal = true;
+		}
+	}
 </script>
 
 <div
@@ -18,7 +34,10 @@
 					class:default-menu={menuID === 'default'}
 					class:apple-icon-button={menuID === 'apple'}
 					style:--scale={menubar_state.active === menuID ? 1 : 0}
-					onclick={() => (menubar_state.active = menuID)}
+					onclick={() => {
+						if (menuID === 'apple') handleSecret();
+						menubar_state.active = menuID;
+					}}
 					onmouseover={() => menubar_state.active && (menubar_state.active = menuID)}
 					onfocus={() => (menubar_state.active = menuID)}
 				>
@@ -39,6 +58,9 @@
 			</div>
 		</div>
 	{/each}
+	{#if showLoginModal}
+		<LoginModal onClose={() => (showLoginModal = false)} />
+	{/if}
 </div>
 
 <style>

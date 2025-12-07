@@ -146,7 +146,7 @@
 	<span style:transform="translate(0, {$appOpenIconBounceTransform}px)">
 		<img
 			bind:this={image_el}
-			src="/app-icons/{app_id}/256.webp"
+			src={app_id === 'user' ? 'https://github.com/PuruVJ.png' : `/app-icons/${app_id}/256.webp`}
 			alt="{title} app"
 			style:width="{$width_px / 16}rem"
 			draggable="false"
@@ -213,7 +213,8 @@
 		display: none;
 
 		&.dark {
-			--double-border: inset 0 0 0 0.9px hsla(var(--system-color-dark-hsl), 0.3),
+			--double-border:
+				inset 0 0 0 0.9px hsla(var(--system-color-dark-hsl), 0.3),
 				0 0 0 1.2px hsla(var(--system-color-light-hsl), 0.3);
 		}
 	}

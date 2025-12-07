@@ -20,9 +20,9 @@ export const preferences = persisted('macos:preferences', {
 		primaryColor: 'blue',
 	} as Theme,
 	wallpaper: {
-		image: 'ventura-2',
-		id: 'ventura',
-		canControlTheme: true,
+		image: 'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=3874&auto=format&fit=crop',
+		id: 'custom',
+		canControlTheme: false,
 	} as WallpaperSettings,
 });
 

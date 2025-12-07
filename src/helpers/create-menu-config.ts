@@ -4,9 +4,11 @@ const apple_menu = {
 		'about-this-mac': {
 			title: 'About This Mac',
 			breakAfter: true,
+            action: 'aboutMac',
 		},
 		'system-preferences': {
-			title: 'System Preferences...',
+			title: 'System Settings...',
+            action: 'settings',
 		},
 		'app-store': {
 			title: 'App Store...',

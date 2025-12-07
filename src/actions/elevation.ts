@@ -1,6 +1,8 @@
 const z_index_config = {
 	wallpaper: -1,
-	'bootup-screen': 110,
+	'bootup-screen': 10000,
+    'lock-screen': 9999,
+    'top-bar': 9998,
 	'context-menu': 100,
 	'window-traffic-lights': 10,
 	dock: 80,

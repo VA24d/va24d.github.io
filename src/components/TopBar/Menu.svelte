@@ -1,12 +1,23 @@
 <script lang="ts">
 	import { preferences } from '🍎/state/preferences.svelte.ts';
 
+	import { apps } from '🍎/state/apps.svelte';
+
 	const { menu }: { menu: any } = $props();
+
+	function handleAction(action: string) {
+		if (action && apps.open[action] !== undefined) {
+			apps.open[action] = true;
+			apps.active = action;
+		}
+	}
 </script>
 
 <section class="container" class:dark={preferences.theme.scheme === 'dark'}>
-	{#each Object.entries(menu) as Array<[any, any]> as [_, val]}
-		<button class="menu-item" disabled={val.disabled}>{val.title}</button>
+	{#each Object.entries(menu) as Array as [_, val]}
+		<button class="menu-item" disabled={val.disabled} onclick={() => handleAction(val.action)}>
+			{val.title}
+		</button>
 		{#if val.breakAfter}
 			<div class="divider"></div>
 		{/if}
@@ -39,7 +50,8 @@
 			var(--additional-box-shadow);
 
 		&.dark {
-			--additional-box-shadow: inset 0 0 0 0.9px hsla(var(--system-color-dark-hsl), 0.3),
+			--additional-box-shadow:
+				inset 0 0 0 0.9px hsla(var(--system-color-dark-hsl), 0.3),
 				0 0 0 1.2px hsla(var(--system-color-light-hsl), 0.3);
 		}
 	}

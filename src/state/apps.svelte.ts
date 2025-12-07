@@ -4,22 +4,17 @@ export type AppID = keyof typeof apps_config;
 
 export const apps = $state({
 	open: {
-		wallpapers: false,
-		finder: true,
-		vscode: false,
-		calculator: false,
-		// safari: false,
-		appstore: false,
-		calendar: false,
-		// 'system-preferences': false,
-
-		'purus-twitter': false,
-		'view-source': true,
-
-		vercel: true,
+		files: false,
+		music: false,
+		settings: false,
+		terminal: false,
+		welcome: false,
+		blog: false,
+		aboutMac: true,
+		user: true,
 	} as Record<AppID, boolean>,
 
-	active: 'finder' satisfies AppID,
+	active: 'files' satisfies AppID,
 
 	/**
 	 * Maximum zIndex for the active app
@@ -28,36 +23,22 @@ export const apps = $state({
 	active_z_index: -2,
 
 	z_indices: {
-		wallpapers: 0,
-		finder: 0,
-		vscode: 0,
-		calculator: 0,
-		// safari: 0,
-		appstore: 0,
-		calendar: 0,
-		// 'system-preferences': 0,
-
-		'purus-twitter': 0,
-		'view-source': 0,
-
-		vercel: 0,
+		files: 0,
+		music: 0,
+		settings: 0,
+		terminal: 0,
+		welcome: 0,
+		blog: 0,
 	} as Record<AppID, number>,
 
 	is_being_dragged: false as boolean,
 
 	fullscreen: {
-		wallpapers: false,
-		finder: false,
-		vscode: false,
-		calculator: false,
-		// safari: false,
-		appstore: false,
-		calendar: false,
-		// 'system-preferences': false,
-
-		'purus-twitter': false,
-		'view-source': false,
-
-		vercel: false,
+		files: false,
+		music: false,
+		settings: false,
+		terminal: false,
+		welcome: false,
+		blog: false,
 	} as Record<AppID, boolean>,
 });

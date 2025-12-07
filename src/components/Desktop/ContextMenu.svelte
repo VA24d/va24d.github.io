@@ -4,6 +4,8 @@
 	import { fade_out } from '🍎/helpers/fade.ts';
 	import { preferences } from '🍎/state/preferences.svelte.ts';
 
+	import { apps } from '🍎/state/apps.svelte';
+
 	const { target_element }: { target_element: HTMLElement } = $props();
 
 	let x_pos = $state(0);
@@ -29,6 +31,14 @@
 	function hideMenu() {
 		is_menu_visible = false;
 	}
+
+	function handleAction(action: string) {
+		if (action === 'change-desktop-bg') {
+			apps.open.wallpapers = true;
+			apps.active = 'wallpapers';
+		}
+		hideMenu();
+	}
 </script>
 
 <svelte:body
@@ -47,8 +57,8 @@
 		out:fade_out
 		use:elevation={'context-menu'}
 	>
-		{#each Object.values(context_menu_config.default) as contents}
-			<button class="menu-item">{contents.title}</button>
+		{#each Object.entries(context_menu_config.default) as [action, contents]}
+			<button class="menu-item" onclick={() => handleAction(action)}>{contents.title}</button>
 
 			{#if contents.breakAfter}
 				<div class="divider"></div>
@@ -59,7 +69,6 @@
 
 <style>
 	.container {
-		--additional-shadow: 0 0 0 0 white;
 		display: block;
 
 		min-width: 16rem;
@@ -73,45 +82,22 @@
 		-webkit-font-smoothing: antialiased;
 		user-select: none;
 
-		background-color: hsla(var(--system-color-light-hsl), 0.3);
+		background-color: color-mix(in srgb, var(--c-glass) 60%, transparent);
+		backdrop-filter: blur(20px) saturate(180%);
+		-webkit-backdrop-filter: blur(20px) saturate(180%);
 
-		border-radius: 0.5rem;
+		border-radius: 0.75rem;
+		border: 1px solid rgba(255, 255, 255, 0.2);
 
 		box-shadow:
-			hsla(0, 0%, 0%, 0.3) 0px 0px 11px 0px,
-			var(--additional-shadow);
+			0 0 0 1px rgba(0, 0, 0, 0.05),
+			0 20px 50px rgba(0, 0, 0, 0.3);
 
 		&.dark {
-			--additional-shadow: inset 0 0 0 0.9px hsla(var(--system-color-dark-hsl), 0.3),
-				0 0 0 1.2px hsla(var(--system-color-light-hsl), 0.3);
-
-			&::before {
-				transform: scale(0.99);
-			}
+			background-color: color-mix(in srgb, var(--c-glass-dark) 60%, transparent);
+			border: 1px solid rgba(255, 255, 255, 0.1);
 		}
 
-		&::before {
-			content: '';
-
-			width: 100%;
-			height: 100%;
-
-			border-radius: inherit;
-
-			position: absolute;
-			left: 0;
-			top: 0;
-
-			transform: scale(0.996);
-
-			z-index: -1;
-			backdrop-filter: blur(15px);
-		}
-
-		* {
-			-webkit-font-smoothing: antialiased;
-		}
-	}
 
 	.menu-item {
 		--alpha: 1;

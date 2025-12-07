@@ -161,7 +161,8 @@
 
 		will-change: width, height;
 
-		border-radius: 0.75rem;
+		border-radius: 12px; /* Rounded corners */
+		overflow: hidden; /* Ensure content respects rounded corners */
 		box-shadow: var(--elevated-shadow);
 
 		cursor: var(--system-cursor-default), auto;
@@ -186,8 +187,9 @@
 
 	.tl-container {
 		position: absolute;
-		top: 1rem;
-		left: 1rem;
+		top: 12px;
+		left: 12px;
+		z-index: 100; /* Ensure traffic lights are on top */
 
 		/* // Necessary, as `.container` tries to apply shadow on it */
 		box-shadow: none !important;

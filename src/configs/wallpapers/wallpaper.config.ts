@@ -449,6 +449,12 @@ export const wallpapers_config = create_wallpapers_config({
 		type: 'standalone',
 		thumbnail: '64',
 	},
+    custom: {
+        name: 'Custom',
+        type: 'standalone',
+        thumbnail: 'ventura-2',
+        image: 'https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=3874&auto=format&fit=crop'
+    }
 });
 
 export type WallpaperID = keyof typeof wallpapers_config;

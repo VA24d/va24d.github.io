@@ -1,48 +1,25 @@
 <script lang="ts">
-	const {
-		is_being_dragged,
-	}: {
-		is_being_dragged: boolean;
-	} = $props();
-
-	$inspect(is_being_dragged);
 </script>
 
-<section class="container">
-	<header class="app-window-drag-handle"></header>
-
-	<div>
-		<iframe
-			src="https://stackblitz.com/github/puruvj/macos-web?embed=1&file=src/components/Desktop/Desktop.svelte&hideNavigation=1&theme=dark&view=editor"
-			title="VS Code for macOS Web"
-		></iframe>
+<div class="app-placeholder">
+	<div class="content">
+		<h1>VS Code</h1>
+		<p>This is a placeholder for the VS Code app.</p>
 	</div>
-</section>
+</div>
 
 <style>
-	.container {
-		background-color: #202327;
-		padding: 1px;
-
-		border-radius: inherit;
-
-		display: grid;
-		grid-template-rows: auto 1fr;
-	}
-
-	iframe {
-		width: 100%;
+	.app-placeholder {
 		height: 100%;
-
-		border-radius: 0 0 0.75rem 0.75rem;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #1e1e1e;
+		color: #d4d4d4;
 	}
 
-	header {
-		padding: 0.9rem;
-	}
-
-	:global(.tl-container.vscode) {
-		top: 0.6rem;
-		left: 0.6rem;
+	.content {
+		text-align: center;
 	}
 </style>

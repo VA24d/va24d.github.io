@@ -6,6 +6,6 @@ const menu_configs = { finder: finder_menu_config };
 export const should_show_notch = persisted('macos:setting:should-show-notch', false as boolean);
 
 export const menubar_state = $state({
-	menus: menu_configs.finder,
+	menus: menu_configs.finder as any,
 	active: '' as string,
 });
